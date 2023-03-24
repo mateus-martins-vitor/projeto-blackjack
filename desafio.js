@@ -11,3 +11,48 @@
  * 
  */
 
+    let usuarioCartas = [];
+    let computadorCartas = [];
+    let usuarioResultado = 0;
+    let computadorPontuacao = 0;
+    
+    while (usuarioResultado < 21 && (!computadorPontuacao || computadorPontuacao < 21)) {
+      const cartaUsuario = comprarCarta();
+      usuarioCartas.push(cartaUsuario.texto);
+      usuarioResultado += cartaUsuario.valor;
+    
+      if (usuarioResultado > 21) {
+        console.log(`Usuário - cartas: ${usuarioCartas.join(' ')} - pontuação ${usuarioResultado}`);
+        console.log(`Computador - cartas: ${computadorCartas.join(' ')} - pontuação ${computadorPontuacao}`);
+        console.log("O computador ganhou!");
+        break;
+      }
+    
+      const cartaComputador = comprarCarta();
+      computadorCartas.push(cartaComputador.texto);
+      computadorPontuacao += cartaComputador.valor;
+    
+      if (computadorPontuacao > 21) {
+        console.log(`Usuário - cartas: ${usuarioCartas.join(' ')} - pontuação ${usuarioResultado}`);
+        console.log(`Computador - cartas: ${computadorCartas.join(' ')} - pontuação ${computadorPontuacao}`);
+        console.log("O usuário foi ganhador!");
+        break;
+      }
+    }
+    
+    if (usuarioResultado <= 21 && computadorPontuacao <= 21) {
+      if (usuarioResultado > computadorPontuacao) {
+        console.log(`Usuário - cartas: ${usuarioCartas.join(' ')} - pontuação ${usuarioResultado}`);
+        console.log(`Computador - cartas: ${computadorCartas.join(' ')} - pontuação ${computadorPontuacao}`);
+        console.log("O usuário foi ganhador!");
+      } else if (usuarioResultado < computadorPontuacao) {
+        console.log(`Usuário - cartas: ${usuarioCartas.join(' ')} - pontuação ${usuarioResultado}`);
+        console.log(`Computador - cartas: ${computadorCartas.join(' ')} - pontuação ${computadorPontuacao}`);
+        console.log("O computador ganhou!");
+      } else {
+        console.log(`Usuário - cartas: ${usuarioCartas.join(' ')} - pontuação ${usuarioResultado}`);
+        console.log(`Computador - cartas: ${computadorCartas.join(' ')} - pontuação ${computadorPontuacao}`);
+        console.log("Resultado Empate!");
+      }
+    }
+    
