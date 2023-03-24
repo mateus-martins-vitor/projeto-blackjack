@@ -10,3 +10,28 @@
  * 
  * 
  */
+
+   
+    
+
+    console.log("Boas vindas ao jogo de BlackJack!");
+
+let iniciarRodada = confirm("Quer iniciar uma nova rodada?");
+
+if (iniciarRodada) {
+  console.log("Nova rodada iniciada!");
+  iniciarNovaRodada();
+} else {
+  console.log("O jogo acabou.");
+}
+
+function iniciarNovaRodada() {
+  // Instruções para iniciar uma nova rodada aqui
+  iniciarRodada = confirm("Quer iniciar uma nova rodada?");
+  if (iniciarRodada) {
+    console.log("Iniciando uma nova rodada...");
+    iniciarNovaRodada();
+  } else {
+    console.log("O jogo acabou.");
+  }
+}
